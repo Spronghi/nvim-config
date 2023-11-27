@@ -4,9 +4,13 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim' 
+	use 'wbthomason/packer.nvim'
 
   use ('Shatur/neovim-ayu')
+
+  use('L3MON4D3/LuaSnip')
+  use('saadparwaiz1/cmp_luasnip')
+  use("rafamadriz/friendly-snippets")
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -33,4 +37,5 @@ return require('packer').startup(function(use)
 	use("sbdchd/neoformat")
 
 	use ("hrsh7th/nvim-cmp")
+	use ("hrsh7th/cmp-nvim-lsp")
 end)
