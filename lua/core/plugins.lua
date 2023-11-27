@@ -18,19 +18,17 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}) 
+	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
 	use ('mbbill/undotree')
 
 	use ('tpope/vim-fugitive')
 
-	use {
-		'saadparwaiz1/cmp_luasnip',
-		"rafamadriz/friendly-snippets",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	}
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig"
+  }
 
 	use("sbdchd/neoformat")
 
