@@ -4,14 +4,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-
-  use ('Shatur/neovim-ayu')
-
-  use('L3MON4D3/LuaSnip')
-  use('saadparwaiz1/cmp_luasnip')
-  use("rafamadriz/friendly-snippets")
-
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -19,23 +11,24 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
-    requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
-	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-
-	use ('mbbill/undotree')
-
-	use ('tpope/vim-fugitive')
-
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig"
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-	use("sbdchd/neoformat")
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-	use ("hrsh7th/nvim-cmp")
-	use ("hrsh7th/cmp-nvim-lsp")
+  use {
+    'wbthomason/packer.nvim',
+    'Shatur/neovim-ayu',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    "rafamadriz/friendly-snippets",
+    'mbbill/undotree',
+    'tpope/vim-fugitive',
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "lukas-reineke/lsp-format.nvim"
+  }
 end)
