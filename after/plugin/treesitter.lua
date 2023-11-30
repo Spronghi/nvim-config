@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "go", "c", "lua", "javascript", "typescript", "vim", "vimdoc", "query" },
 
@@ -13,4 +13,11 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      node_incremental = "v",
+      node_decremental = "V",
+    },
+  }
 }

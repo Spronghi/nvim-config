@@ -17,6 +17,15 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
   use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
+  use {
+    "windwp/nvim-ts-autotag",
+    config = function() require("nvim-ts-autotag").setup {} end
+  }
+  use {
     'wbthomason/packer.nvim',
     'Shatur/neovim-ayu',
     'L3MON4D3/LuaSnip',
