@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>hf', function()
 end)
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>pd', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>pg', function()
   builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
@@ -19,3 +20,5 @@ telescope.setup {
     }
   }
 }
+
+telescope.load_extension('neoclip')

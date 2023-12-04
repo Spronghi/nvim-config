@@ -25,6 +25,20 @@ return require('packer').startup(function(use)
     "windwp/nvim-ts-autotag",
     config = function() require("nvim-ts-autotag").setup {} end
   }
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
   use {
     'wbthomason/packer.nvim',
     'Shatur/neovim-ayu',
@@ -38,6 +52,7 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
+    "kkharji/sqlite.lua",
     "lukas-reineke/lsp-format.nvim"
   }
 end)
