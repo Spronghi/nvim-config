@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "kkharji/sqlite.lua",
+    "fatih/vim-go",
     "lukas-reineke/lsp-format.nvim"
   }
 end)
