@@ -41,6 +41,7 @@ wk.register({
     f = { "<cmd>Git diff<cr>", "GitDiff" },
     d = { vim.cmd.Gdiff, "Gdiff" },
     a = { "<cmd>Git add .<cr>", "Git add ." },
+    p = { "<cmd>Git push<cr>", "Git push" },
     c = { function() 
       local message = vim.fn.input("Commit message: ")
       local command = string.format('Git commit -m"%s"',message)
