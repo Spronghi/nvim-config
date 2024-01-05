@@ -37,9 +37,21 @@ wk.register({
 wk.register({
   g = {
     name = "git",
-    s = { vim.cmd.Git, "Git" },
-    d = { vim.cmd.GitDiff, "GitDiff" },
-    g = { vim.cmd.Gdiff, "Gdiff" },
+    g = { vim.cmd.Git, "Git" },
+    f = { "<cmd>Git diff<cr>", "GitDiff" },
+    d = { vim.cmd.Gdiff, "Gdiff" },
+    a = { "<cmd>Git add .<cr>", "Git add ." },
+    c = { function() 
+      local message = vim.fn.input("Commit message: ")
+      local command = string.format('Git commit -m"%s"',message)
+
+      if command == "" then 
+        return
+      end
+
+      vim.cmd(command)
+    end, "Git commit" },
+
   }
 }, { prefix = "<leader>" })
 
@@ -61,4 +73,4 @@ wk.register({
       require("neotest").run.attach()
     end, "Attach" }
   }
-}, { prefix = "<leader>" })
+}, { prefix = "<let diffader>" })
