@@ -2,6 +2,7 @@ local cmp = require("cmp")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
+-- TODO understand if these are needed or add a comment
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
