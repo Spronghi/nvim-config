@@ -83,6 +83,15 @@ return require('packer').startup({
       "fatih/vim-go",
       "lukas-reineke/lsp-format.nvim",
     }
+
+    use {
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-treesitter/nvim-treesitter"
+      }
+    }
   end,
   config = {
     display = {
