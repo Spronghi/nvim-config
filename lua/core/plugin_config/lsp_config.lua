@@ -1,6 +1,6 @@
-require("mason").setup()
-require("mason").setup()
+local wk = require("which-key")
 
+require("mason").setup()
 require("lsp-format").setup {}
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -14,13 +14,6 @@ local handlers = {
     require("lspconfig")[server_name].setup {
       capabilities = capabilities,
       on_attach    = function(client, bufnr)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {})
-
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-
         if server_name == "volar" then
           vim.api.nvim_create_autocmd("BufWritePost", {
             command = 'silent! EslintFixAll',
@@ -32,3 +25,5 @@ local handlers = {
     }
   end,
 }
+
+require("mason-lspconfig").setup({ automatic_installation = true, handlers = handlers })

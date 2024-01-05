@@ -2,8 +2,6 @@ local wk = require("which-key")
 
 vim.g.mapleader = " "
 
--- others in lua/core/plugin_config/lsp_config.lua
-
 -- generic
 wk.register({
   h = { ":nohlsearch<CR>", "Clear search" },
@@ -42,11 +40,11 @@ wk.register({
     d = { vim.cmd.Gdiff, "Gdiff" },
     a = { "<cmd>Git add .<cr>", "Git add ." },
     p = { "<cmd>Git push<cr>", "Git push" },
-    c = { function() 
+    c = { function()
       local message = vim.fn.input("Commit message: ")
-      local command = string.format('Git commit -m"%s"',message)
+      local command = string.format('Git commit -m"%s"', message)
 
-      if command == "" then 
+      if command == "" then
         return
       end
 
@@ -75,3 +73,21 @@ wk.register({
     end, "Attach" }
   }
 }, { prefix = "<let diffader>" })
+
+-- lsp
+wk.register({
+  r = {
+    n = { vim.lsp.buf.rename, "Rename" },
+  },
+  c = {
+    a = { vim.lsp.buf.code_action, "Code Action" },
+  }
+}, { prefix = "<leader>" })
+
+wk.register({
+  K = { vim.lsp.buf.hover, "Hover infos" },
+  g = {
+    d = { vim.lsp.buf.hover, "Go to definition" },
+    r = { require("telescope.builtin").lsp_references, "Show references" },
+  },
+})
