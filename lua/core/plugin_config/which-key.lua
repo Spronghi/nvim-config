@@ -94,7 +94,8 @@ wk.register({
 wk.register({
   K = { vim.lsp.buf.hover, "Hover infos" },
   g = {
-    d = { vim.lsp.buf.hover, "Go to definition" },
+    d = { vim.lsp.buf.definition, "Go to definition" },
+    D = { vim.lsp.buf.declaration, "Go to declaration" },
     r = { require("telescope.builtin").lsp_references, "Show references" },
   },
 })
