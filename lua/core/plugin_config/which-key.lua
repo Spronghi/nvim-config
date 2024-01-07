@@ -11,8 +11,8 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
-  K = { ":m +1<CR>gv=gv", "Move line up" },
-  J = { ":m -2<CR>gv=gv", "Move line down" },
+  J = { ":m +1<CR>gv=gv", "Move line up" },
+  K = { ":m -2<CR>gv=gv", "Move line down" },
 }, { mode = "v" })
 
 -- undotree
