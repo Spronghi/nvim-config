@@ -1,5 +1,3 @@
-local wk = require("which-key")
-
 require("mason").setup()
 require("lsp-format").setup {}
 

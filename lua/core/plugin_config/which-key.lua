@@ -7,8 +7,13 @@ wk.register({
   h = { ":nohlsearch<CR>", "Clear search" },
   p = {
     v = { vim.cmd.Ex, "Ex" },
-  }
+  },
 }, { prefix = "<leader>" })
+
+wk.register({
+  K = { ":m +1<CR>gv=gv", "Move line up" },
+  J = { ":m -2<CR>gv=gv", "Move line down" },
+}, { mode = "v" })
 
 -- undotree
 wk.register({
@@ -36,7 +41,7 @@ wk.register({
   g = {
     name = "git",
     g = { vim.cmd.Git, "Git" },
-    f = { "<cmd>Git diff<cr>", "GitDiff" },
+    f = { "<cmd>Git diff<cr>", "Git diff" },
     d = { vim.cmd.Gdiff, "Gdiff" },
     a = { "<cmd>Git add .<cr>", "Git add ." },
     p = { "<cmd>Git push<cr>", "Git push" },
@@ -55,24 +60,26 @@ wk.register({
 }, { prefix = "<leader>" })
 
 -- neotest
+local neotest = require("neotest")
+
 wk.register({
   t = {
     name = "test",
-    t = { require("neotest").run.run, "Run one" },
+    t = { neotest.run.run, "Run one" },
     f = { function()
-      require("neotest").run.run(vim.fn.expand("%"))
+      neotest.run.run(vim.fn.expand("%"))
     end, "Run all" },
     d = { function()
-      require("neotest").run.run({ strategy = "dap" })
+      neotest.run.run({ strategy = "dap" })
     end, "Debug" },
     s = { function()
-      require("neotest").run.stop()
+      neotest.run.stop()
     end, "Stop" },
     a = { function()
-      require("neotest").run.attach()
+      neotest.run.attach()
     end, "Attach" }
   }
-}, { prefix = "<let diffader>" })
+}, { prefix = "<leader>" })
 
 -- lsp
 wk.register({
