@@ -26,9 +26,10 @@ local builtin = require('telescope.builtin')
 wk.register({
   p = {
     name = "file",
-    f = { builtin.find_files, "Find File" },
-    s = { builtin.live_grep, "Live Grep" },
-    o = { builtin.lsp_document_symbols, "Document Symbols" },
+    f = { builtin.find_files, "Find file" },
+    s = { builtin.live_grep, "Live grep" },
+    o = { builtin.lsp_document_symbols, "Document symbols" },
+    O = { builtin.lsp_workspace_symbols, "Workspace symbols" },
   },
   h = {
     name = "help",
