@@ -33,7 +33,7 @@ wk.register({
   h = {
     name = "help",
     f = { builtin.help_tags, "Find Help Tags" }
-  }
+  },
 }, { prefix = "<leader>" })
 
 -- git
@@ -45,6 +45,7 @@ wk.register({
     d = { vim.cmd.Gdiff, "Gdiff" },
     a = { "<cmd>Git add .<cr>", "Git add ." },
     p = { "<cmd>Git push<cr>", "Git push" },
+    C = { builtin.git_commits, "List of commits" },
     c = { function()
       local message = vim.fn.input("Commit message: ")
       local command = string.format('Git commit -m"%s"', message)
@@ -96,6 +97,6 @@ wk.register({
   g = {
     d = { vim.lsp.buf.definition, "Go to definition" },
     D = { vim.lsp.buf.declaration, "Go to declaration" },
-    r = { require("telescope.builtin").lsp_references, "Show references" },
+    r = { builtin.lsp_references, "Show references" },
   },
 })
