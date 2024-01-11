@@ -77,7 +77,18 @@ return require('packer').startup({
       "kkharji/sqlite.lua",
       "fatih/vim-go",
       "lukas-reineke/lsp-format.nvim",
+      "christoomey/vim-tmux-navigator"
     }
+
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      setup = function()
+        vim.g.mkdp_filetypes = {
+          "markdown" }
+      end,
+      ft = { "markdown" },
+    })
 
     use {
       "nvim-neotest/neotest",

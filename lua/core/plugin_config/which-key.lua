@@ -89,6 +89,7 @@ wk.register({
     n = { vim.lsp.buf.rename, "Rename" },
   },
   c = {
+    name = "code",
     a = { vim.lsp.buf.code_action, "Code Action" },
   }
 }, { prefix = "<leader>" })
@@ -100,4 +101,21 @@ wk.register({
     D = { vim.lsp.buf.declaration, "Go to declaration" },
     r = { builtin.lsp_references, "Show references" },
   },
+})
+
+-- markdown
+wk.register({
+  m = {
+    name = "markdown",
+    d = { ":MarkdownPreviewToggle<CR>", "Preview" },
+  }
+})
+
+-- tmux
+wk.register({
+  { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+  { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+  { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+  { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+  { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 })
