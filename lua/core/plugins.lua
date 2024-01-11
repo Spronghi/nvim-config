@@ -87,6 +87,7 @@ return require('packer').startup({
         "nvim-treesitter/nvim-treesitter",
         "folke/neodev.nvim",
         "nvim-neotest/neotest-go",
+        "marilari88/neotest-vitest",
       }
     }
   end,
