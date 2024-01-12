@@ -77,7 +77,8 @@ return require('packer').startup({
       "kkharji/sqlite.lua",
       "fatih/vim-go",
       "lukas-reineke/lsp-format.nvim",
-      "christoomey/vim-tmux-navigator"
+      "lvimuser/lsp-inlayhints.nvim",
+      "christoomey/vim-tmux-navigator",
     }
 
     use({
