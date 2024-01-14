@@ -77,9 +77,12 @@ wk.register({
     s = { function()
       neotest.run.stop()
     end, "Stop" },
+    o = { function()
+      neotest.summary.toggle()
+    end, "Attach" },
     a = { function()
       neotest.run.attach()
-    end, "Attach" }
+    end, "Attach" },
   }
 }, { prefix = "<leader>" })
 
