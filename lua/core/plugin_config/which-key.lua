@@ -78,8 +78,11 @@ wk.register({
       neotest.run.stop()
     end, "Stop" },
     o = { function()
-      neotest.summary.toggle()
+      neotest.output_panel.toggle()
     end, "Attach" },
+    p = { function()
+      neotest.summary.toggle()
+    end, "Summary" },
     a = { function()
       neotest.run.attach()
     end, "Attach" },
