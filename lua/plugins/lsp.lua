@@ -6,6 +6,7 @@ return {
   { "hrsh7th/cmp-nvim-lsp" },
   {
     "williamboman/mason-lspconfig.nvim",
+    lazy = false,
     keys = {
       { "K",  vim.lsp.buf.hover,                           desc = "Hover infos" },
       { "gd", vim.lsp.buf.definition,                      desc = "Go to definition" },
