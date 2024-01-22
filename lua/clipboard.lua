@@ -1,7 +1,7 @@
 -- Fix clipboard in windows WSL
 IS_LINUX = vim.loop.os_uname().sysname == "Linux"
 if IS_LINUX then
-    vim.cmd([[
+  vim.cmd([[
      let g:clipboard = {
     \   'name': 'WslClipboard',
     \   'copy': {
