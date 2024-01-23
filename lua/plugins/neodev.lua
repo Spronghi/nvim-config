@@ -1,5 +1,7 @@
 return {
   "folke/neodev.nvim",
-  opts = {},
-  library = { plugins = { "neotest" }, types = true },
+  event = "BufEnter *.lua",
+  opts = {
+    library = { plugins = { "neotest" }, types = true },
+  },
 }
