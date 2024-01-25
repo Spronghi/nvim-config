@@ -29,7 +29,7 @@ return {
       -- and will be called for each installed server that doesn't have
       -- a dedicated handler.
       function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup({
+        local opts = {
           capabilities = capabilities,
           on_attach = function(client, bufnr)
             if server_name == "volar" then
@@ -41,9 +41,17 @@ return {
             end
           end,
         }
-        )
+
+        if server_name == "lua_ls" then
+          local lua_settings = require("lsp.lua_settings")
+
+          opts.Lua = lua_settings.Lua
+        end
+
+        require("lspconfig")[server_name].setup(opts)
       end,
     }
+
 
     require("mason-lspconfig").setup({
       automatic_installation = true,
