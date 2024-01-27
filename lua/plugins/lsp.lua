@@ -46,10 +46,6 @@ return {
           opts.settings = require("lsp.lua_settings")
         end
 
-        if server_name == "sqls" then
-          opts.settings = { sqls = require("lsp.sqls_settings") }
-        end
-
         require("lspconfig")[server_name].setup(opts)
       end,
     }
