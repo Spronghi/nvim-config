@@ -43,9 +43,11 @@ return {
         }
 
         if server_name == "lua_ls" then
-          local lua_settings = require("lsp.lua_settings")
+          opts.settings = require("lsp.lua_settings")
+        end
 
-          opts.Lua = lua_settings.Lua
+        if server_name == "sqls" then
+          opts.settings = { sqls = require("lsp.sqls_settings") }
         end
 
         require("lspconfig")[server_name].setup(opts)
