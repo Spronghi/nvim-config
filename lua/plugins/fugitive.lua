@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
   "tpope/vim-fugitive",
   dependencies = { "nvim-telescope/telescope.nvim" },
@@ -6,8 +8,31 @@ return {
     { "<leader>gg", vim.cmd.Git,          desc = "Git" },
     { "<leader>gd", vim.cmd.Gdiff,        desc = "Gdiff" },
     { "<leader>ga", "<cmd>Git add .<cr>", desc = "Git add ." },
-    { "<leader>gp", "<cmd>Git push<cr>",  desc = "Git push" },
-    { "<leader>gh", "<cmd>Gllog<cr>",     desc = "Git history" },
+    {
+      "<leader>gp",
+      function()
+        local branch = utils.get_current_branch()
+
+        if branch == "" or branch == "master" or branch == "main" then
+          vim.cmd("Git push")
+          return
+        end
+
+        vim.cmd(string.format("Git push origin -u %s", branch))
+      end,
+      desc = "Git push"
+    },
+    {
+      "<leader>gs",
+      function()
+        local branch = vim.fn.input("Branch name: ")
+        local command = string.format('Git checkout %s', branch)
+
+        vim.cmd(command)
+      end,
+      desc = "Git checkout <branch>"
+    },
+    { "<leader>gh", "<cmd>Gllog<cr>", desc = "Git history" },
     {
       "<leader>gu",
       function()
@@ -28,7 +53,7 @@ return {
         local branch = vim.fn.input("Branch name: ")
         local command = string.format('Git checkout -b %s', branch)
 
-        if branch == "" then
+        if branch == "" or branch == "master" or branch == "main" then
           return
         end
 
