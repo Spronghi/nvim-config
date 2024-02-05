@@ -4,11 +4,24 @@ return {
   event = "VeryLazy",
   keys = {
     { "<leader>gg", vim.cmd.Git,          desc = "Git" },
-    { "<laeder>gf", "<cmd>Git diff<cr>",  desc = "Git diff" },
     { "<leader>gd", vim.cmd.Gdiff,        desc = "Gdiff" },
     { "<leader>ga", "<cmd>Git add .<cr>", desc = "Git add ." },
     { "<leader>gp", "<cmd>Git push<cr>",  desc = "Git push" },
     { "<leader>gh", "<cmd>Gllog<cr>",     desc = "Git history" },
+    {
+      "<leader>gu",
+      function()
+        local confirm = vim.fn.input("Are you sure you want to undo the last commit? (y/N) ")
+        local command = string.format('Git reset HEAD^')
+
+        if string.lower(confirm) ~= "y" then
+          return
+        end
+
+        vim.cmd(command)
+      end,
+      desc = "Git reset HEAD^"
+    },
     {
       "<leader>gb",
       function()
@@ -21,7 +34,7 @@ return {
 
         vim.cmd(command)
       end,
-      desc = "Git checkout -b"
+      desc = "Git checkout -b <branch>"
     },
     {
       "<leader>gc",
