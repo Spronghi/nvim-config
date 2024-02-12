@@ -10,5 +10,12 @@ return {
     { "<leader>pO", require("telescope.builtin").lsp_workspace_symbols, desc = "Workspace symbols" },
     { "<leader>hf", require("telescope.builtin").help_tags,             desc = "Find help tags" },
     { "<leader>gC", require("telescope.builtin").git_commits,           desc = "List of commits" },
+    {
+      "<leader>pb",
+      function()
+        require("telescope.builtin").buffers({ show_all_buffers = true })
+      end,
+      desc = "Show all buffers"
+    },
   }
 }
