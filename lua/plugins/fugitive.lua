@@ -8,6 +8,7 @@ return {
     { "<leader>gg", vim.cmd.Git,          desc = "Git" },
     { "<leader>gd", vim.cmd.Gdiff,        desc = "Gdiff" },
     { "<leader>ga", "<cmd>Git add .<cr>", desc = "Git add ." },
+    { "<leader>gB", "<cmd>Git blame<cr>", desc = "Git blame" },
     {
       "<leader>gp",
       function()
